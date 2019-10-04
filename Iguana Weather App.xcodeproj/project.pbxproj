@@ -1,0 +1,589 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8D9F07E9234728F4008A4063 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9F07E8234728F4008A4063 /* AppDelegate.swift */; };
+		8D9F07EB234728F4008A4063 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9F07EA234728F4008A4063 /* FirstViewController.swift */; };
+		8D9F07ED234728F4008A4063 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9F07EC234728F4008A4063 /* SecondViewController.swift */; };
+		8D9F07F0234728F4008A4063 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D9F07EE234728F4008A4063 /* Main.storyboard */; };
+		8D9F07F2234728F7008A4063 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D9F07F1234728F7008A4063 /* Assets.xcassets */; };
+		8D9F07F5234728F7008A4063 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D9F07F3234728F7008A4063 /* LaunchScreen.storyboard */; };
+		8D9F0800234728F7008A4063 /* Iguana_Weather_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9F07FF234728F7008A4063 /* Iguana_Weather_AppTests.swift */; };
+		8D9F080B234728F7008A4063 /* Iguana_Weather_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9F080A234728F7008A4063 /* Iguana_Weather_AppUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8D9F07FC234728F7008A4063 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8D9F07DD234728F4008A4063 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D9F07E4234728F4008A4063;
+			remoteInfo = "Iguana Weather App";
+		};
+		8D9F0807234728F7008A4063 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8D9F07DD234728F4008A4063 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D9F07E4234728F4008A4063;
+			remoteInfo = "Iguana Weather App";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		8D9F07E5234728F4008A4063 /* Iguana Weather App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Iguana Weather App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D9F07E8234728F4008A4063 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8D9F07EA234728F4008A4063 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		8D9F07EC234728F4008A4063 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		8D9F07EF234728F4008A4063 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8D9F07F1234728F7008A4063 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8D9F07F4234728F7008A4063 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8D9F07F6234728F7008A4063 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8D9F07FB234728F7008A4063 /* Iguana Weather AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Iguana Weather AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D9F07FF234728F7008A4063 /* Iguana_Weather_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Iguana_Weather_AppTests.swift; sourceTree = "<group>"; };
+		8D9F0801234728F7008A4063 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8D9F0806234728F7008A4063 /* Iguana Weather AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Iguana Weather AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D9F080A234728F7008A4063 /* Iguana_Weather_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Iguana_Weather_AppUITests.swift; sourceTree = "<group>"; };
+		8D9F080C234728F7008A4063 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8D9F07E2234728F4008A4063 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8D9F07F8234728F7008A4063 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8D9F0803234728F7008A4063 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8D9F07DC234728F4008A4063 = {
+			isa = PBXGroup;
+			children = (
+				8D9F07E7234728F4008A4063 /* Iguana Weather App */,
+				8D9F07FE234728F7008A4063 /* Iguana Weather AppTests */,
+				8D9F0809234728F7008A4063 /* Iguana Weather AppUITests */,
+				8D9F07E6234728F4008A4063 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8D9F07E6234728F4008A4063 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D9F07E5234728F4008A4063 /* Iguana Weather App.app */,
+				8D9F07FB234728F7008A4063 /* Iguana Weather AppTests.xctest */,
+				8D9F0806234728F7008A4063 /* Iguana Weather AppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8D9F07E7234728F4008A4063 /* Iguana Weather App */ = {
+			isa = PBXGroup;
+			children = (
+				8D9F07E8234728F4008A4063 /* AppDelegate.swift */,
+				8D9F07EA234728F4008A4063 /* FirstViewController.swift */,
+				8D9F07EC234728F4008A4063 /* SecondViewController.swift */,
+				8D9F07EE234728F4008A4063 /* Main.storyboard */,
+				8D9F07F1234728F7008A4063 /* Assets.xcassets */,
+				8D9F07F3234728F7008A4063 /* LaunchScreen.storyboard */,
+				8D9F07F6234728F7008A4063 /* Info.plist */,
+			);
+			path = "Iguana Weather App";
+			sourceTree = "<group>";
+		};
+		8D9F07FE234728F7008A4063 /* Iguana Weather AppTests */ = {
+			isa = PBXGroup;
+			children = (
+				8D9F07FF234728F7008A4063 /* Iguana_Weather_AppTests.swift */,
+				8D9F0801234728F7008A4063 /* Info.plist */,
+			);
+			path = "Iguana Weather AppTests";
+			sourceTree = "<group>";
+		};
+		8D9F0809234728F7008A4063 /* Iguana Weather AppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				8D9F080A234728F7008A4063 /* Iguana_Weather_AppUITests.swift */,
+				8D9F080C234728F7008A4063 /* Info.plist */,
+			);
+			path = "Iguana Weather AppUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8D9F07E4234728F4008A4063 /* Iguana Weather App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8D9F080F234728F7008A4063 /* Build configuration list for PBXNativeTarget "Iguana Weather App" */;
+			buildPhases = (
+				8D9F07E1234728F4008A4063 /* Sources */,
+				8D9F07E2234728F4008A4063 /* Frameworks */,
+				8D9F07E3234728F4008A4063 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Iguana Weather App";
+			productName = "Iguana Weather App";
+			productReference = 8D9F07E5234728F4008A4063 /* Iguana Weather App.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8D9F07FA234728F7008A4063 /* Iguana Weather AppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8D9F0812234728F7008A4063 /* Build configuration list for PBXNativeTarget "Iguana Weather AppTests" */;
+			buildPhases = (
+				8D9F07F7234728F7008A4063 /* Sources */,
+				8D9F07F8234728F7008A4063 /* Frameworks */,
+				8D9F07F9234728F7008A4063 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8D9F07FD234728F7008A4063 /* PBXTargetDependency */,
+			);
+			name = "Iguana Weather AppTests";
+			productName = "Iguana Weather AppTests";
+			productReference = 8D9F07FB234728F7008A4063 /* Iguana Weather AppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		8D9F0805234728F7008A4063 /* Iguana Weather AppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8D9F0815234728F7008A4063 /* Build configuration list for PBXNativeTarget "Iguana Weather AppUITests" */;
+			buildPhases = (
+				8D9F0802234728F7008A4063 /* Sources */,
+				8D9F0803234728F7008A4063 /* Frameworks */,
+				8D9F0804234728F7008A4063 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8D9F0808234728F7008A4063 /* PBXTargetDependency */,
+			);
+			name = "Iguana Weather AppUITests";
+			productName = "Iguana Weather AppUITests";
+			productReference = 8D9F0806234728F7008A4063 /* Iguana Weather AppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8D9F07DD234728F4008A4063 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Niko Hienonen";
+				TargetAttributes = {
+					8D9F07E4234728F4008A4063 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					8D9F07FA234728F7008A4063 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 8D9F07E4234728F4008A4063;
+					};
+					8D9F0805234728F7008A4063 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 8D9F07E4234728F4008A4063;
+					};
+				};
+			};
+			buildConfigurationList = 8D9F07E0234728F4008A4063 /* Build configuration list for PBXProject "Iguana Weather App" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8D9F07DC234728F4008A4063;
+			productRefGroup = 8D9F07E6234728F4008A4063 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8D9F07E4234728F4008A4063 /* Iguana Weather App */,
+				8D9F07FA234728F7008A4063 /* Iguana Weather AppTests */,
+				8D9F0805234728F7008A4063 /* Iguana Weather AppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8D9F07E3234728F4008A4063 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D9F07F5234728F7008A4063 /* LaunchScreen.storyboard in Resources */,
+				8D9F07F2234728F7008A4063 /* Assets.xcassets in Resources */,
+				8D9F07F0234728F4008A4063 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8D9F07F9234728F7008A4063 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8D9F0804234728F7008A4063 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8D9F07E1234728F4008A4063 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D9F07ED234728F4008A4063 /* SecondViewController.swift in Sources */,
+				8D9F07E9234728F4008A4063 /* AppDelegate.swift in Sources */,
+				8D9F07EB234728F4008A4063 /* FirstViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8D9F07F7234728F7008A4063 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D9F0800234728F7008A4063 /* Iguana_Weather_AppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8D9F0802234728F7008A4063 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D9F080B234728F7008A4063 /* Iguana_Weather_AppUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8D9F07FD234728F7008A4063 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8D9F07E4234728F4008A4063 /* Iguana Weather App */;
+			targetProxy = 8D9F07FC234728F7008A4063 /* PBXContainerItemProxy */;
+		};
+		8D9F0808234728F7008A4063 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8D9F07E4234728F4008A4063 /* Iguana Weather App */;
+			targetProxy = 8D9F0807234728F7008A4063 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8D9F07EE234728F4008A4063 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8D9F07EF234728F4008A4063 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		8D9F07F3234728F7008A4063 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8D9F07F4234728F7008A4063 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8D9F080D234728F7008A4063 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		8D9F080E234728F7008A4063 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8D9F0810234728F7008A4063 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Iguana Weather App/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "tamk.Iguana-Weather-App";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8D9F0811234728F7008A4063 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Iguana Weather App/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "tamk.Iguana-Weather-App";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		8D9F0813234728F7008A4063 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Iguana Weather AppTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "tamk.Iguana-Weather-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Iguana Weather App.app/Iguana Weather App";
+			};
+			name = Debug;
+		};
+		8D9F0814234728F7008A4063 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Iguana Weather AppTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "tamk.Iguana-Weather-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Iguana Weather App.app/Iguana Weather App";
+			};
+			name = Release;
+		};
+		8D9F0816234728F7008A4063 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Iguana Weather AppUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "tamk.Iguana-Weather-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Iguana Weather App";
+			};
+			name = Debug;
+		};
+		8D9F0817234728F7008A4063 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Iguana Weather AppUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "tamk.Iguana-Weather-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Iguana Weather App";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8D9F07E0234728F4008A4063 /* Build configuration list for PBXProject "Iguana Weather App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8D9F080D234728F7008A4063 /* Debug */,
+				8D9F080E234728F7008A4063 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8D9F080F234728F7008A4063 /* Build configuration list for PBXNativeTarget "Iguana Weather App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8D9F0810234728F7008A4063 /* Debug */,
+				8D9F0811234728F7008A4063 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8D9F0812234728F7008A4063 /* Build configuration list for PBXNativeTarget "Iguana Weather AppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8D9F0813234728F7008A4063 /* Debug */,
+				8D9F0814234728F7008A4063 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8D9F0815234728F7008A4063 /* Build configuration list for PBXNativeTarget "Iguana Weather AppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8D9F0816234728F7008A4063 /* Debug */,
+				8D9F0817234728F7008A4063 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8D9F07DD234728F4008A4063 /* Project object */;
+}
