@@ -15,31 +15,31 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var tempLabel: UILabel!
     
+    @IBOutlet weak var icon: UIImageView!
     @IBOutlet weak var activityView: UIActivityIndicatorView!
     
     var locationManager: CLLocationManager!;
-    var weatherModel: WeatherModel!;
+    var weatherModel: WeatherModel! = WeatherModel();
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        super.viewDidLoad();
+        
         activityView.hidesWhenStopped = true;
         activityView.startAnimating();
-
-        self.weatherModel = WeatherModel();
-
+        
         self.locationManager = CLLocationManager();
         locationManager.delegate = self;
-        self.fetchWeather();
-        self.locationManager.startUpdatingLocation();
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+
         locationManager.requestAlwaysAuthorization();
+        self.locationManager.startUpdatingLocation();
     }
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
-        print("locationManager")
+
+    func locationManager(_ locationManager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
         let location = locations.last;
+
         self.weatherModel.lat = location?.coordinate.latitude;
         self.weatherModel.lon = location?.coordinate.longitude;
-        
         self.locationManager?.stopUpdatingLocation();
         fetchWeather();
     }
@@ -47,7 +47,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate {
         let config = URLSessionConfiguration.default;
         let session = URLSession(configuration: config);
         let url = weatherModel.getUrl();
-        let task = session.dataTask(with: url!, completionHandler: doneFetching);
+        let task = session.dataTask(with: url!, completionHandler: doneFetching)
         task.resume();
     }
     func doneFetching(data: Data?, response: URLResponse?, error: Error?){
@@ -59,8 +59,6 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate {
         do {
             let weatherJson = try decoder.decode(WeatherJson.self, from: data!);
             updateModel(json: weatherJson);
-            //let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers);
-            print("vittuhä")
         }catch let jsonError {
             print(jsonError);
         }
@@ -71,11 +69,27 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate {
         weatherModel.icon = json.weather[0].icon;
         weatherModel.country = json.sys.country;
         weatherModel.city = json.name;
+        getIcon();
+        //setIcon();
         changeValues();
+    }
+    func getIcon(){
+        let config = URLSessionConfiguration.default;
+        let session = URLSession(configuration: config);
+        let url = weatherModel.getIconUrl();
+        let task = session.dataTask(with: url!, completionHandler: doneFetchingIcon)
+        task.resume();
+    }
+    func doneFetchingIcon(data: Data?, response: URLResponse?, error: Error?){
+        if error != nil {
+            print(error!);
+            return;
+        }
+        self.icon.image = UIImage(data: data!);
     }
     func changeValues() {
         self.cityLabel.text = "\(weatherModel.city!), \(weatherModel.country!)";
-        self.tempLabel.text = "\(kelvinToCelsius(kelvin: weatherModel.temperature!)) °C"
+        self.tempLabel.text = "\(weatherModel.temperature!) °C"
         activityView.stopAnimating();
     }
     func kelvinToCelsius(kelvin: Double) -> Double{

@@ -44,7 +44,7 @@ class WeatherModel {
         return url;
     }
     func getIconUrl() -> URL? {
-        let url = URL(string: "http://openweathermap.org/img/wn/\(icon!)@2x.png")!;
+        let url = URL(string: "https://openweathermap.org/img/wn/\(icon!)@2x.png")!;
         return url;
     }
 }

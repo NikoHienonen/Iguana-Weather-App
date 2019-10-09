@@ -24,9 +24,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dlI-Bq-5U1">
-                                <rect key="frame" x="135" y="281" width="104" height="104"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0°C" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nDK-q6-KrW">
                                 <rect key="frame" x="16" y="393" width="343" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -39,26 +36,31 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="2pa-94-qVq">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="2pa-94-qVq">
                                 <rect key="frame" x="169" y="315" width="37" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" red="0.58592921689999999" green="0.041766450349999998" blue="0.8764167746" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bbS-zR-Aus">
+                                <rect key="frame" x="146" y="292" width="83" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="dlI-Bq-5U1" secondAttribute="trailing" constant="136" id="4Mx-AD-g0a"/>
+                            <constraint firstItem="nDK-q6-KrW" firstAttribute="top" secondItem="2pa-94-qVq" secondAttribute="bottom" constant="41" id="5Uh-Fx-FQF"/>
+                            <constraint firstItem="2pa-94-qVq" firstAttribute="top" secondItem="1x7-S4-tkb" secondAttribute="bottom" constant="42" id="77f-wa-U8q"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="nDK-q6-KrW" secondAttribute="bottom" constant="204" id="I1n-qY-gPG"/>
+                            <constraint firstItem="2pa-94-qVq" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="169" id="Mdl-PD-e3u"/>
+                            <constraint firstItem="KQZ-1w-vlD" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" id="Ua2-2x-zn3"/>
                             <constraint firstItem="1x7-S4-tkb" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="16" id="XcP-tQ-bsv"/>
                             <constraint firstItem="nDK-q6-KrW" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="16" id="biM-ts-4B7"/>
                             <constraint firstItem="1x7-S4-tkb" firstAttribute="top" secondItem="KQZ-1w-vlD" secondAttribute="bottom" constant="189" id="eln-gm-deW"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="1x7-S4-tkb" secondAttribute="trailing" constant="16" id="f1B-dm-zxN"/>
-                            <constraint firstItem="nDK-q6-KrW" firstAttribute="top" secondItem="dlI-Bq-5U1" secondAttribute="bottom" constant="8" id="ir1-z7-nCr"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="2pa-94-qVq" secondAttribute="trailing" constant="169" id="kDi-22-23l"/>
                             <constraint firstItem="KQZ-1w-vlD" firstAttribute="trailing" secondItem="PQr-Ze-W5v" secondAttribute="trailing" id="lRQ-y3-cwd"/>
-                            <constraint firstItem="dlI-Bq-5U1" firstAttribute="top" secondItem="1x7-S4-tkb" secondAttribute="bottom" constant="8" id="mXf-0U-Fj4"/>
                             <constraint firstItem="KQZ-1w-vlD" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" id="q8G-n7-K6A"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="nDK-q6-KrW" secondAttribute="trailing" constant="16" id="qIz-jz-2jb"/>
                             <constraint firstItem="KQZ-1w-vlD" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" id="qZo-in-NcM"/>
-                            <constraint firstItem="dlI-Bq-5U1" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="135" id="xIP-OV-4VH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
@@ -66,7 +68,7 @@
                     <connections>
                         <outlet property="activityView" destination="2pa-94-qVq" id="ijp-bd-vyD"/>
                         <outlet property="cityLabel" destination="1x7-S4-tkb" id="fgl-VK-aLA"/>
-                        <outlet property="imageView" destination="dlI-Bq-5U1" id="0IB-4b-bhM"/>
+                        <outlet property="icon" destination="bbS-zR-Aus" id="whw-eR-7RF"/>
                         <outlet property="tempLabel" destination="nDK-q6-KrW" id="eV5-iw-x79"/>
                     </connections>
                 </viewController>
