@@ -40,18 +40,21 @@
                                 <rect key="frame" x="169" y="315" width="37" height="37"/>
                                 <color key="color" red="0.58592921689999999" green="0.041766450349999998" blue="0.8764167746" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bbS-zR-Aus">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bbS-zR-Aus">
                                 <rect key="frame" x="146" y="292" width="83" height="82"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="nDK-q6-KrW" firstAttribute="top" secondItem="bbS-zR-Aus" secondAttribute="bottom" constant="19" id="4EY-Et-MXO"/>
                             <constraint firstItem="nDK-q6-KrW" firstAttribute="top" secondItem="2pa-94-qVq" secondAttribute="bottom" constant="41" id="5Uh-Fx-FQF"/>
                             <constraint firstItem="2pa-94-qVq" firstAttribute="top" secondItem="1x7-S4-tkb" secondAttribute="bottom" constant="42" id="77f-wa-U8q"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="bbS-zR-Aus" secondAttribute="trailing" constant="146" id="AWh-DX-SgE"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="nDK-q6-KrW" secondAttribute="bottom" constant="204" id="I1n-qY-gPG"/>
                             <constraint firstItem="2pa-94-qVq" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="169" id="Mdl-PD-e3u"/>
+                            <constraint firstItem="bbS-zR-Aus" firstAttribute="top" secondItem="1x7-S4-tkb" secondAttribute="bottom" constant="19" id="Sbg-qj-x42"/>
                             <constraint firstItem="KQZ-1w-vlD" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" id="Ua2-2x-zn3"/>
+                            <constraint firstItem="bbS-zR-Aus" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="146" id="VSv-bT-Fem"/>
                             <constraint firstItem="1x7-S4-tkb" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="16" id="XcP-tQ-bsv"/>
                             <constraint firstItem="nDK-q6-KrW" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="16" id="biM-ts-4B7"/>
                             <constraint firstItem="1x7-S4-tkb" firstAttribute="top" secondItem="KQZ-1w-vlD" secondAttribute="bottom" constant="189" id="eln-gm-deW"/>
