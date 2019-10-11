@@ -10,8 +10,9 @@ A iOS weather app created with Swift and XCode Interface Builder.
 * [Status](#status)
 
 ## General info
-An iOS weather application, used to get the weather in the users city, five days of weather in 
-the users city and the weather of a city of the user's choosing.
+An iOS weather application, used to get the current weather condition in a city of the user's choosing.
+It can also locate the user via GPS and get the weather from their location. Also a feature that displays
+the forecast of the next five days.
 	
 ## Technologies
 Project is created with:
