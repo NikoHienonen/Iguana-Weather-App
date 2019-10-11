@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8D11D054234B372C00DF70C1 /* activitySpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D11D053234B372C00DF70C1 /* activitySpinner.swift */; };
 		8D9F07E9234728F4008A4063 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9F07E8234728F4008A4063 /* AppDelegate.swift */; };
 		8D9F07EB234728F4008A4063 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9F07EA234728F4008A4063 /* FirstViewController.swift */; };
 		8D9F07ED234728F4008A4063 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9F07EC234728F4008A4063 /* SecondViewController.swift */; };
@@ -17,6 +16,7 @@
 		8D9F0800234728F7008A4063 /* Iguana_Weather_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9F07FF234728F7008A4063 /* Iguana_Weather_AppTests.swift */; };
 		8D9F080B234728F7008A4063 /* Iguana_Weather_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9F080A234728F7008A4063 /* Iguana_Weather_AppUITests.swift */; };
 		8D9F0819234734F1008A4063 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9F0818234734F1008A4063 /* WeatherModel.swift */; };
+		8DDAA95123507018001EC3CE /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDAA95023507018001EC3CE /* ThirdViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +37,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		8D11D053234B372C00DF70C1 /* activitySpinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = activitySpinner.swift; sourceTree = "<group>"; };
 		8D9F07E5234728F4008A4063 /* Iguana Weather App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Iguana Weather App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D9F07E8234728F4008A4063 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8D9F07EA234728F4008A4063 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -53,6 +52,7 @@
 		8D9F080A234728F7008A4063 /* Iguana_Weather_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Iguana_Weather_AppUITests.swift; sourceTree = "<group>"; };
 		8D9F080C234728F7008A4063 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D9F0818234734F1008A4063 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
+		8DDAA95023507018001EC3CE /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,12 +106,12 @@
 				8D9F07E8234728F4008A4063 /* AppDelegate.swift */,
 				8D9F07EA234728F4008A4063 /* FirstViewController.swift */,
 				8D9F07EC234728F4008A4063 /* SecondViewController.swift */,
+				8DDAA95023507018001EC3CE /* ThirdViewController.swift */,
 				8D9F07EE234728F4008A4063 /* Main.storyboard */,
 				8D9F07F1234728F7008A4063 /* Assets.xcassets */,
 				8D9F07F3234728F7008A4063 /* LaunchScreen.storyboard */,
 				8D9F07F6234728F7008A4063 /* Info.plist */,
 				8D9F0818234734F1008A4063 /* WeatherModel.swift */,
-				8D11D053234B372C00DF70C1 /* activitySpinner.swift */,
 			);
 			path = "Iguana Weather App";
 			sourceTree = "<group>";
@@ -265,9 +265,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D11D054234B372C00DF70C1 /* activitySpinner.swift in Sources */,
 				8D9F07ED234728F4008A4063 /* SecondViewController.swift in Sources */,
 				8D9F07E9234728F4008A4063 /* AppDelegate.swift in Sources */,
+				8DDAA95123507018001EC3CE /* ThirdViewController.swift in Sources */,
 				8D9F0819234734F1008A4063 /* WeatherModel.swift in Sources */,
 				8D9F07EB234728F4008A4063 /* FirstViewController.swift in Sources */,
 			);

@@ -9,7 +9,7 @@
 import UIKit;
 import CoreLocation;
 
-class FirstViewController: UIViewController, CLLocationManagerDelegate {
+class FirstViewController: UIViewController{
     
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
@@ -17,32 +17,17 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var icon: UIImageView!
     @IBOutlet weak var activityView: UIActivityIndicatorView!
-    
-    var locationManager: CLLocationManager!;
+
     var weatherModel: WeatherModel! = WeatherModel();
     
     override func viewDidLoad() {
         super.viewDidLoad();
         
         activityView.hidesWhenStopped = true;
-        activityView.startAnimating();
-        
-        self.locationManager = CLLocationManager();
-        locationManager.delegate = self;
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-
-        locationManager.requestAlwaysAuthorization();
-        self.locationManager.startUpdatingLocation();
-    }
-
-    func locationManager(_ locationManager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
-        let location = locations.last;
-
-        self.weatherModel.lat = location?.coordinate.latitude;
-        self.weatherModel.lon = location?.coordinate.longitude;
-        self.locationManager?.stopUpdatingLocation();
+        activityView.startAnimating()
         fetchWeather();
     }
+    
     func fetchWeather(){
         let config = URLSessionConfiguration.default;
         let session = URLSession(configuration: config);
@@ -71,7 +56,11 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate {
         weatherModel.city = json.name;
         getIcon();
         //setIcon();
-        changeValues();
+        DispatchQueue.main.async {
+            self.cityLabel.text = "\(self.weatherModel.city!), \(self.weatherModel.country!)";
+            self.tempLabel.text = "\(self.weatherModel.temperature!) °C";
+            self.activityView.stopAnimating();
+        }
     }
     func getIcon(){
         let config = URLSessionConfiguration.default;
@@ -85,12 +74,9 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate {
             print(error!);
             return;
         }
-        self.icon.image = UIImage(data: data!);
-    }
-    func changeValues() {
-        self.cityLabel.text = "\(weatherModel.city!), \(weatherModel.country!)";
-        self.tempLabel.text = "\(weatherModel.temperature!) °C"
-        activityView.stopAnimating();
+        DispatchQueue.main.async{
+            self.icon.image = UIImage(data: data!);
+        }
     }
     func kelvinToCelsius(kelvin: Double) -> Double{
         let celsius  = Double(round((kelvin - 273.15)*100)/100);

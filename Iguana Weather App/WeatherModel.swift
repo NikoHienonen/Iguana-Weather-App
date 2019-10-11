@@ -30,17 +30,14 @@ struct Sys: Codable {
 }
 
 class WeatherModel {
-    var city: String?;
-    var country: String?;
+    var city: String? = "Tampere";
+    var country: String? = "FI";
     var temperature: Double?;
     var description: String?;
     var icon: String?;
-    var lon: Double?;
-    var lat: Double?;
-    var icons: [UIImage]?;
     
     func getUrl() -> URL?{
-        let url: URL? = URL(string: "https://api.openweathermap.org/data/2.5/weather?lat=\(self.lat ?? 61.4978)&lon=\(self.lon ?? 23.7610)&appid=30701f8ebf7c4b28740f8d8576766539");
+        let url: URL? = URL(string: "https://api.openweathermap.org/data/2.5/weather?q=\(city!),\(country!)&appid=30701f8ebf7c4b28740f8d8576766539");
         return url;
     }
     func getIconUrl() -> URL? {
