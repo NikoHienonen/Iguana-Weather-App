@@ -30,8 +30,6 @@ class ThirdViewController: UIViewController, CLLocationManagerDelegate, UITableV
         locationManager.delegate = self;
         locationManager.desiredAccuracy = kCLLocationAccuracyBest;
         
-        locationManager.requestAlwaysAuthorization();
-        self.locationManager.startUpdatingLocation();
     }
     @IBAction func addPressed(_ sender: UIButton) {
         cities.append(textField.text!);
@@ -45,10 +43,21 @@ class ThirdViewController: UIViewController, CLLocationManagerDelegate, UITableV
         textField.text = "";
         view.endEditing(true);
     }
-
+    @IBAction func save(_ sender: Any) {
+        let db = UserDefaults.standard;
+        db.set(self.weatherModel.city, forKey: "city");
+        db.synchronize();
+    }
     //From delegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        NSLog("\(cities[indexPath.row])");
+        if indexPath.row > 0 {
+            let currentCell = tableView.cellForRow(at: indexPath);
+            weatherModel.city = currentCell!.textLabel!.text;
+        } else {
+            locationManager.requestAlwaysAuthorization();
+            self.locationManager.startUpdatingLocation();
+        }
+        self.save(self);
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.cities.count;
@@ -63,7 +72,7 @@ class ThirdViewController: UIViewController, CLLocationManagerDelegate, UITableV
         return true;
     }
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
+        if editingStyle == .delete && indexPath.row > 0{
             cities.remove(at: indexPath.row);
             
             cityTableView.beginUpdates();
@@ -73,12 +82,24 @@ class ThirdViewController: UIViewController, CLLocationManagerDelegate, UITableV
     }
     
     func locationManager(_ locationManager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
-        let location = locations.last;
-        
-        //self.weatherModel.lat = location?.coordinate.latitude;
-        //self.weatherModel.lon = location?.coordinate.longitude;
-        self.locationManager?.stopUpdatingLocation();
+        if locations.count > 0 {
+            let location = locations.last;
+            //self.weatherModel.lat = location?.coordinate.latitude;
+            //self.weatherModel.lon = location?.coordinate.longitude;
+            self.locationManager?.stopUpdatingLocation();
+            let geoCoder = CLGeocoder();
+            geoCoder.reverseGeocodeLocation(location!, completionHandler: { (placemarks, error) in
+                if error == nil {
+                    let loc = placemarks![0];
+                    self.weatherModel.city = loc.locality!;
 
+                } else {
+                    print(error!);
+                }
+            })
+        } else {
+            return;
+        }
     }
 
 }

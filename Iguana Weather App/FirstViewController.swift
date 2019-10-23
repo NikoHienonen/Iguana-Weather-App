@@ -22,12 +22,21 @@ class FirstViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad();
-        
         activityView.hidesWhenStopped = true;
         activityView.startAnimating()
         fetchWeather();
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        load(self);
+    }
+    @IBAction func load(_ sender: Any){
+        let db = UserDefaults.standard;
+        let city = db.string(forKey: "city");
+        if city != nil {
+            self.weatherModel.city = city!;
+            self.fetchWeather();
+        }
+    }
     func fetchWeather(){
         let config = URLSessionConfiguration.default;
         let session = URLSession(configuration: config);
@@ -37,14 +46,17 @@ class FirstViewController: UIViewController{
     }
     func doneFetching(data: Data?, response: URLResponse?, error: Error?){
         if error != nil {
-            print(error!);
+            self.showAlert();
+            print("vttusatana")
             return;
         }
         let decoder = JSONDecoder();
         do {
             let weatherJson = try decoder.decode(WeatherJson.self, from: data!);
+            print(weatherJson);
             updateModel(json: weatherJson);
         }catch let jsonError {
+            self.showAlert();
             print(jsonError);
         }
     }
@@ -81,5 +93,13 @@ class FirstViewController: UIViewController{
     func kelvinToCelsius(kelvin: Double) -> Double{
         let celsius  = Double(round((kelvin - 273.15)*100)/100);
         return celsius;
+    }
+    func showAlert(){
+        let alert = UIAlertController(title: "No City Found!", message: "No weather information for \(self.weatherModel.city!)!", preferredStyle: .alert);
+        let action = UIAlertAction(title: "OK", style: .cancel, handler: nil);
+        alert.addAction(action);
+        DispatchQueue.main.async {
+            self.present(alert, animated: true, completion: nil);
+        }
     }
 }
