@@ -9,11 +9,10 @@
 import UIKit;
 import CoreLocation;
 
-class ThirdViewController: UIViewController, CLLocationManagerDelegate, UITableViewDataSource, UITableViewDelegate{
+class ThirdViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
     var cities = ["Use GPS", "Tampere", "Helsinki", "Vaasa"];
     
-    var locationManager: CLLocationManager!;
     var weatherModel: WeatherModel! = WeatherModel();
     
     @IBOutlet weak var cityTableView: UITableView!
@@ -23,12 +22,10 @@ class ThirdViewController: UIViewController, CLLocationManagerDelegate, UITableV
         super.viewDidLoad();
         cityTableView.tableFooterView = UIView(frame: CGRect.zero);
         
+        self.load(self);
+        
         self.cityTableView.dataSource = self;
         self.cityTableView.delegate = self;
-        
-        self.locationManager = CLLocationManager();
-        locationManager.delegate = self;
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest;
         
     }
     @IBAction func addPressed(_ sender: UIButton) {
@@ -46,7 +43,18 @@ class ThirdViewController: UIViewController, CLLocationManagerDelegate, UITableV
     @IBAction func save(_ sender: Any) {
         let db = UserDefaults.standard;
         db.set(self.weatherModel.city, forKey: "city");
+        db.set(self.cities, forKey: "citiesArray");
         db.synchronize();
+    }
+    @IBAction func load(_ sender: Any){
+        let db = UserDefaults.standard;
+        let cities = db.array(forKey: "citiesArray");
+        if cities != nil {
+            self.cities = cities as! [String];
+        }
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        self.save(self);
     }
     //From delegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -54,8 +62,7 @@ class ThirdViewController: UIViewController, CLLocationManagerDelegate, UITableV
             let currentCell = tableView.cellForRow(at: indexPath);
             weatherModel.city = currentCell!.textLabel!.text;
         } else {
-            locationManager.requestAlwaysAuthorization();
-            self.locationManager.startUpdatingLocation();
+            weatherModel.city = "useGPS";
         }
         self.save(self);
     }
@@ -80,26 +87,4 @@ class ThirdViewController: UIViewController, CLLocationManagerDelegate, UITableV
             cityTableView.endUpdates();
         }
     }
-    
-    func locationManager(_ locationManager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
-        if locations.count > 0 {
-            let location = locations.last;
-            //self.weatherModel.lat = location?.coordinate.latitude;
-            //self.weatherModel.lon = location?.coordinate.longitude;
-            self.locationManager?.stopUpdatingLocation();
-            let geoCoder = CLGeocoder();
-            geoCoder.reverseGeocodeLocation(location!, completionHandler: { (placemarks, error) in
-                if error == nil {
-                    let loc = placemarks![0];
-                    self.weatherModel.city = loc.locality!;
-
-                } else {
-                    print(error!);
-                }
-            })
-        } else {
-            return;
-        }
-    }
-
 }

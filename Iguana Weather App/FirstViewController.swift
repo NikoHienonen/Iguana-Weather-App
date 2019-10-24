@@ -9,7 +9,7 @@
 import UIKit;
 import CoreLocation;
 
-class FirstViewController: UIViewController{
+class FirstViewController: UIViewController, CLLocationManagerDelegate{
     
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
@@ -19,11 +19,19 @@ class FirstViewController: UIViewController{
     @IBOutlet weak var activityView: UIActivityIndicatorView!
 
     var weatherModel: WeatherModel! = WeatherModel();
+    var locationManager: CLLocationManager!;
+    var isLoadUp: Bool = true;
     
     override func viewDidLoad() {
         super.viewDidLoad();
+        
+        self.locationManager = CLLocationManager();
+        locationManager.delegate = self;
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest;
         activityView.hidesWhenStopped = true;
-        activityView.startAnimating()
+        
+        activityView.startAnimating();
+        
         fetchWeather();
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -33,8 +41,13 @@ class FirstViewController: UIViewController{
         let db = UserDefaults.standard;
         let city = db.string(forKey: "city");
         if city != nil {
-            self.weatherModel.city = city!;
-            self.fetchWeather();
+            if city == "useGPS" {
+                locationManager.requestAlwaysAuthorization();
+                self.locationManager.startUpdatingLocation();
+            }else {
+                self.weatherModel.city = city!;
+                self.fetchWeather();
+            }
         }
     }
     func fetchWeather(){
@@ -46,18 +59,21 @@ class FirstViewController: UIViewController{
     }
     func doneFetching(data: Data?, response: URLResponse?, error: Error?){
         if error != nil {
-            self.showAlert();
-            print("vttusatana")
             return;
         }
         let decoder = JSONDecoder();
         do {
             let weatherJson = try decoder.decode(WeatherJson.self, from: data!);
-            print(weatherJson);
             updateModel(json: weatherJson);
         }catch let jsonError {
-            self.showAlert();
-            print(jsonError);
+            if(isLoadUp){
+                print(jsonError);
+                isLoadUp = false;
+                return;
+            } else {
+                self.showAlert();
+                return;
+            }
         }
     }
     func updateModel(json: WeatherJson){
@@ -100,6 +116,26 @@ class FirstViewController: UIViewController{
         alert.addAction(action);
         DispatchQueue.main.async {
             self.present(alert, animated: true, completion: nil);
+        }
+    }
+    func locationManager(_ locationManager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
+        if locations.count > 0 {
+            let location = locations.last;
+            //self.weatherModel.lat = location?.coordinate.latitude;
+            //self.weatherModel.lon = location?.coordinate.longitude;
+            self.locationManager?.stopUpdatingLocation();
+            let geoCoder = CLGeocoder();
+            geoCoder.reverseGeocodeLocation(location!, completionHandler: { (placemarks, error) in
+                if error == nil {
+                    let loc = placemarks![0];
+                    self.weatherModel.city = loc.locality!;
+                    self.fetchWeather();
+                } else {
+                    print(error!);
+                }
+            })
+        } else {
+            return;
         }
     }
 }

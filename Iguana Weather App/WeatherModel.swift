@@ -9,6 +9,19 @@
 import Foundation;
 import UIKit;
 
+struct Forecast: Codable {
+    var list: Array<ForecastMain>;
+}
+struct ForecastMain: Codable {
+    var main: Main;
+    var weather: Array<Weather>;
+    var dt_txt: String;
+}
+struct ForecastCity: Codable {
+    var name: String;
+    var country: String;
+}
+
 struct WeatherJson: Codable{
     var main: Main;
     var weather: Array<Weather>;
@@ -30,7 +43,7 @@ struct Sys: Codable {
 }
 
 class WeatherModel {
-    var city: String? = "Tampere";
+    var city: String? = "useGPS";
     var country: String? = "FI";
     var temperature: Double?;
     var description: String?;
@@ -43,6 +56,11 @@ class WeatherModel {
     }
     func getIconUrl() -> URL? {
         let url = URL(string: "https://openweathermap.org/img/wn/\(icon!)@2x.png")!;
+        return url;
+    }
+    func getForecastUrl() -> URL? {
+        let stringUrl = city?.replacingOccurrences(of: " ", with: "%20");
+        let url: URL? = URL(string: "https://api.openweathermap.org/data/2.5/forecast?q=\(stringUrl!)&appid=30701f8ebf7c4b28740f8d8576766539");
         return url;
     }
 }
