@@ -40,15 +40,14 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate{
     @IBAction func load(_ sender: Any){
         let db = UserDefaults.standard;
         let city = db.string(forKey: "city");
-        if city != nil {
-            if city == "useGPS" {
-                locationManager.requestAlwaysAuthorization();
-                self.locationManager.startUpdatingLocation();
-            }else {
-                self.weatherModel.city = city!;
-                self.fetchWeather();
-            }
+        if city == "useGPS" || city == nil {
+            locationManager.requestAlwaysAuthorization();
+            self.locationManager.startUpdatingLocation();
+        }else {
+            self.weatherModel.city = city!;
+            self.fetchWeather();
         }
+        
     }
     func fetchWeather(){
         let config = URLSessionConfiguration.default;
@@ -69,7 +68,6 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate{
             if(isLoadUp){
                 print(jsonError);
                 isLoadUp = false;
-                return;
             } else {
                 self.showAlert();
                 return;

@@ -164,13 +164,52 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="forecastCell" id="tjf-IT-DUd">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="forecastCell" rowHeight="91" id="tjf-IT-DUd" customClass="ForecastCell" customModule="Iguana_Weather_App" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="91"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tjf-IT-DUd" id="5rl-ab-tNj">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="90.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dJR-4P-Qam">
+                                            <rect key="frame" x="16" y="11" width="69" height="69"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="69" id="VCW-YV-4Tn"/>
+                                                <constraint firstAttribute="height" constant="69" id="X8P-J8-pU8"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sC4-qw-eWW">
+                                            <rect key="frame" x="93" y="11" width="266" height="39"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RUG-Cf-7WQ">
+                                            <rect key="frame" x="93" y="53" width="266" height="27"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="RUG-Cf-7WQ" firstAttribute="trailing" secondItem="5rl-ab-tNj" secondAttribute="trailingMargin" id="5AC-m3-lOU"/>
+                                        <constraint firstItem="RUG-Cf-7WQ" firstAttribute="leading" secondItem="dJR-4P-Qam" secondAttribute="trailing" constant="8" id="9jy-rE-7e8"/>
+                                        <constraint firstItem="dJR-4P-Qam" firstAttribute="top" secondItem="5rl-ab-tNj" secondAttribute="topMargin" id="B5u-vK-JdC"/>
+                                        <constraint firstItem="dJR-4P-Qam" firstAttribute="leading" secondItem="5rl-ab-tNj" secondAttribute="leadingMargin" id="DF9-M4-kd7"/>
+                                        <constraint firstItem="dJR-4P-Qam" firstAttribute="bottom" secondItem="5rl-ab-tNj" secondAttribute="bottomMargin" id="IuP-Rb-WTL"/>
+                                        <constraint firstItem="sC4-qw-eWW" firstAttribute="leading" secondItem="dJR-4P-Qam" secondAttribute="trailing" constant="8" id="NE2-rC-S95"/>
+                                        <constraint firstItem="RUG-Cf-7WQ" firstAttribute="bottom" secondItem="5rl-ab-tNj" secondAttribute="bottomMargin" id="Os1-nV-TAd"/>
+                                        <constraint firstItem="sC4-qw-eWW" firstAttribute="top" secondItem="5rl-ab-tNj" secondAttribute="topMargin" id="QdA-lC-s0h"/>
+                                        <constraint firstItem="sC4-qw-eWW" firstAttribute="trailing" secondItem="5rl-ab-tNj" secondAttribute="trailingMargin" id="btQ-iQ-f1h"/>
+                                        <constraint firstItem="RUG-Cf-7WQ" firstAttribute="top" secondItem="sC4-qw-eWW" secondAttribute="bottom" constant="3" id="ifk-l1-yTa"/>
+                                        <constraint firstItem="RUG-Cf-7WQ" firstAttribute="top" secondItem="sC4-qw-eWW" secondAttribute="bottom" constant="3" id="xkD-TI-f3b"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="dateLabel" destination="RUG-Cf-7WQ" id="Vf4-06-Hey"/>
+                                    <outlet property="iconImg" destination="dJR-4P-Qam" id="rUd-lb-aKn"/>
+                                    <outlet property="tempLabel" destination="sC4-qw-eWW" id="yPy-Za-Bzd"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                     </tableView>
@@ -178,7 +217,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="360"/>
+            <point key="canvasLocation" x="749.60000000000002" y="359.37031484257875"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">

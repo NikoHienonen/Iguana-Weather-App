@@ -63,4 +63,8 @@ class WeatherModel {
         let url: URL? = URL(string: "https://api.openweathermap.org/data/2.5/forecast?q=\(stringUrl!)&appid=30701f8ebf7c4b28740f8d8576766539");
         return url;
     }
+    func getForecastIconUrl(iconCode: String) -> URL? {
+        let url : URL? = URL(string: "https://openweathermap.org/img/wn/\(iconCode)@2x.png");
+        return url;
+    }
 }

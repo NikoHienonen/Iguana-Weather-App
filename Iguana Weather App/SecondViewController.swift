@@ -9,15 +9,18 @@
 import UIKit;
 import CoreLocation;
 
-struct CellData {
-    let icon: UIImage?;
-    let weather: String?;
+class ForecastCell: UITableViewCell {
+
+    @IBOutlet weak var iconImg: UIImageView!
+    @IBOutlet weak var tempLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
 }
 
 class SecondViewController: UITableViewController, CLLocationManagerDelegate{
-    
-    var forecasts = [CellData]();
-    var temperatures: [String]();
+    var temperatures = [String]();
+    var dates = [String]();
+    var iconCodes = [String]();
+    var icons: [String: UIImage] = [:];
     
     var weatherModel: WeatherModel! = WeatherModel();
     var locationManager: CLLocationManager! = CLLocationManager();
@@ -25,42 +28,47 @@ class SecondViewController: UITableViewController, CLLocationManagerDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad();
-
+        
         locationManager.delegate = self;
         locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-        
+        fetchWeather();
     }
     override func viewWillAppear(_ animated: Bool) {
+        self.clearArrays();
         load(self);
     }
     
     //From delegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        NSLog("\(forecasts[indexPath.row])");
+        NSLog("\(temperatures[indexPath.row])");
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.forecasts.count;
+        return self.temperatures.count;
     }
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "forecastCell", for: indexPath);
-        print("forecast in view:\(self.forecasts)");
-        cell.textLabel!.text = self.forecasts[indexPath.row].weather;
-        
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> ForecastCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "forecastCell", for: indexPath) as! ForecastCell;
+        cell.tempLabel.text = self.temperatures[indexPath.row];
+        cell.dateLabel.text = self.dates[indexPath.row];
+        cell.iconImg.image = self.icons[iconCodes[indexPath.row]];
         return cell;
     }
     
     @IBAction func load(_ sender: Any){
         let db = UserDefaults.standard;
         let city = db.string(forKey: "city");
-        if city != nil {
-            if city == "useGPS" {
-                locationManager.requestAlwaysAuthorization();
-                self.locationManager.startUpdatingLocation();
-            }else {
-                self.weatherModel.city = city!;
-                self.fetchWeather();
-            }
+        if city == "useGPS" || city == nil {
+            locationManager.requestAlwaysAuthorization();
+            self.locationManager.startUpdatingLocation();
+        }else {
+            self.weatherModel.city = city!;
+            self.fetchWeather();
         }
+        
+    }
+    func clearArrays(){
+        self.temperatures.removeAll();
+        self.dates.removeAll();
+        self.iconCodes.removeAll();
     }
     func fetchWeather(){
         let config = URLSessionConfiguration.default;
@@ -92,7 +100,14 @@ class SecondViewController: UITableViewController, CLLocationManagerDelegate{
         let list = weatherJson.list;
         if list.count > 0 {
             for item in list {
-                let temp = "\(item.weather[0].main) \(self.kelvinToCelsius(kelvin: item.main.temp)) °C";
+                let temp = "\(item.weather[0].main) \(self.kelvinToCelsius(kelvin: item.main.temp))°C";
+                let date = "\(item.dt_txt)";
+                let icon = item.weather[0].icon;
+                if icons[icon] == nil {
+                    getIcon(iconCode: icon);
+                }
+                self.iconCodes.append(icon);
+                self.dates.append(date);
                 self.temperatures.append(temp);
             }
             DispatchQueue.main.async{
@@ -102,21 +117,22 @@ class SecondViewController: UITableViewController, CLLocationManagerDelegate{
             return;
         }
     }
-    func getIcon(){
+    func getIcon(iconCode: String){
         let config = URLSessionConfiguration.default;
         let session = URLSession(configuration: config);
-        let url = weatherModel.getIconUrl();
-        let task = session.dataTask(with: url!, completionHandler: doneFetchingIcon)
+        let url = weatherModel.getForecastIconUrl(iconCode: iconCode);
+        let task = session.dataTask(with: url!) { [weak self] data, response, error in
+            if error != nil {
+                print(error!);
+                return;
+            }
+            else {
+                DispatchQueue.main.async{
+                    self!.icons[iconCode] = UIImage(data: data!);
+                }
+            }
+        }
         task.resume();
-    }
-    func doneFetchingIcon(data: Data?, response: URLResponse?, error: Error?){
-        if error != nil {
-            print(error!);
-            return;
-        }
-        DispatchQueue.main.async{
-            //self.icon.image = UIImage(data: data!);
-        }
     }
     func kelvinToCelsius(kelvin: Double) -> Double{
         let celsius  = Double(round((kelvin - 273.15)*100)/100);
@@ -142,7 +158,6 @@ class SecondViewController: UITableViewController, CLLocationManagerDelegate{
                     let loc = placemarks![0];
                     self.weatherModel.city = loc.locality!;
                     self.fetchWeather();
-                    print("set city in locationmanager")
                 } else {
                     print(error!);
                 }
