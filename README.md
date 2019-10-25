@@ -23,4 +23,6 @@ Project is created with:
 To run this project, open it in xCode, and then run the simulator.
 
 ## Status
+version: 1.1.0
 The app is in development still, this is not the final version!
+
