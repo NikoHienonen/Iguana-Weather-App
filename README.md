@@ -1,4 +1,4 @@
-# Iguana-Weather-App (W.I.P)
+# Iguana-Weather-App 
 Author: Niko Hienonen, 2019
 A iOS weather app created with Swift and XCode Interface Builder.
 
@@ -23,6 +23,6 @@ Project is created with:
 To run this project, open it in xCode, and then run the simulator.
 
 ## Status
-version: 1.1.0
-The app is in development still, this is not the final version!
+version: 1.2.1
+The app is fully completed. Test it out and tell me how you feel about it!
 
