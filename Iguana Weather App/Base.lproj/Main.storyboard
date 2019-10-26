@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Current-->
+        <!--Home-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
                 <viewController id="9pv-A4-QxB" customClass="FirstViewController" customModule="Iguana_Weather_App" customModuleProvider="target" sceneMemberID="viewController">
@@ -43,6 +43,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main-iguana" translatesAutoresizingMaskIntoConstraints="NO" id="uPU-ze-hUK">
+                                <rect key="frame" x="41" y="169" width="199" height="66"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="66" id="aNz-ej-H2P"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -51,6 +57,7 @@
                             <constraint firstItem="KQZ-1w-vlD" firstAttribute="centerX" secondItem="1x7-S4-tkb" secondAttribute="centerX" id="6iL-cU-1d0"/>
                             <constraint firstItem="1x7-S4-tkb" firstAttribute="top" secondItem="KQZ-1w-vlD" secondAttribute="bottom" constant="179" id="Av5-XC-Xah"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="nDK-q6-KrW" secondAttribute="trailing" constant="16" id="CTr-yR-jdK"/>
+                            <constraint firstItem="uPU-ze-hUK" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="41" id="EIO-IP-5R1"/>
                             <constraint firstItem="KQZ-1w-vlD" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="GKI-sY-3g3"/>
                             <constraint firstItem="bbS-zR-Aus" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="147" id="GfZ-rV-THk"/>
                             <constraint firstItem="KQZ-1w-vlD" firstAttribute="centerX" secondItem="2pa-94-qVq" secondAttribute="centerX" id="K2e-cq-hEX"/>
@@ -61,12 +68,14 @@
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="1x7-S4-tkb" secondAttribute="trailing" constant="16" id="aSm-ab-GE6"/>
                             <constraint firstItem="nDK-q6-KrW" firstAttribute="top" secondItem="bbS-zR-Aus" secondAttribute="bottom" constant="8" id="bxu-HZ-3BJ"/>
                             <constraint firstItem="1x7-S4-tkb" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="16" id="foo-Hr-ALr"/>
+                            <constraint firstItem="1x7-S4-tkb" firstAttribute="top" secondItem="uPU-ze-hUK" secondAttribute="bottom" constant="8" symbolic="YES" id="lax-Vs-l2t"/>
                             <constraint firstItem="2pa-94-qVq" firstAttribute="centerY" secondItem="bbS-zR-Aus" secondAttribute="centerY" id="tBa-6C-cy8"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="nDK-q6-KrW" secondAttribute="bottom" constant="194" id="uRO-29-saB"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="uPU-ze-hUK" secondAttribute="trailing" constant="135" id="v2R-nm-PEj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Current" image="home" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="home-25" id="acW-dT-cKf"/>
                     <connections>
                         <outlet property="activityView" destination="2pa-94-qVq" id="ijp-bd-vyD"/>
                         <outlet property="cityLabel" destination="1x7-S4-tkb" id="fgl-VK-aLA"/>
@@ -145,7 +154,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="iIc-BM-9jT"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Cities" id="b0K-z2-4xr"/>
+                    <tabBarItem key="tabBarItem" title="Cities" image="city-25" id="b0K-z2-4xr"/>
                     <connections>
                         <outlet property="cityTableView" destination="zFj-QZ-j8Y" id="G3T-9K-Pz9"/>
                         <outlet property="textField" destination="n5m-a2-ayt" id="Ggr-JV-cdF"/>
@@ -155,10 +164,10 @@
             </objects>
             <point key="canvasLocation" x="-2.3999999999999999" y="669.71514242878561"/>
         </scene>
-        <!--Forecast-->
+        <!--Forecast For 5 Days-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="Iguana_Weather_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Forecast For 5 Days" id="8rJ-Kc-sve" customClass="SecondViewController" customModule="Iguana_Weather_App" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="oj1-T3-veS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -213,7 +222,7 @@
                             </tableViewCell>
                         </prototypes>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Forecast" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Forecast" image="sun-25" id="cPa-gy-q4n"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
@@ -227,6 +236,9 @@
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.58592921689999999" green="0.041766450349999998" blue="0.8764167746" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" red="0.58592921689999999" green="0.041766450349999998" blue="0.8764167746" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
@@ -240,7 +252,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="home" width="16" height="16"/>
-        <image name="second" width="30" height="30"/>
+        <image name="city-25" width="25" height="25"/>
+        <image name="home-25" width="25" height="25"/>
+        <image name="main-iguana" width="640" height="197"/>
+        <image name="sun-25" width="25" height="25"/>
     </resources>
 </document>

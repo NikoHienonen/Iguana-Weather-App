@@ -30,8 +30,6 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate{
         locationManager.desiredAccuracy = kCLLocationAccuracyBest;
         activityView.hidesWhenStopped = true;
         
-        activityView.startAnimating();
-        
         fetchWeather();
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -50,6 +48,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate{
         
     }
     func fetchWeather(){
+        activityView.startAnimating();
         let config = URLSessionConfiguration.default;
         let session = URLSession(configuration: config);
         let url = weatherModel.getUrl();
@@ -64,10 +63,10 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate{
         do {
             let weatherJson = try decoder.decode(WeatherJson.self, from: data!);
             updateModel(json: weatherJson);
-        }catch let jsonError {
+        }catch _{
             if(isLoadUp){
-                print(jsonError);
                 isLoadUp = false;
+                return;
             } else {
                 self.showAlert();
                 return;
@@ -97,7 +96,6 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate{
     }
     func doneFetchingIcon(data: Data?, response: URLResponse?, error: Error?){
         if error != nil {
-            print(error!);
             return;
         }
         DispatchQueue.main.async{
@@ -129,7 +127,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate{
                     self.weatherModel.city = loc.locality!;
                     self.fetchWeather();
                 } else {
-                    print(error!);
+                    return;
                 }
             })
         } else {

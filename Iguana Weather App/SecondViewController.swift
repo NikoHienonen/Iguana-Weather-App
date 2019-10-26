@@ -85,9 +85,8 @@ class SecondViewController: UITableViewController, CLLocationManagerDelegate{
         do {
             let weatherJson = try decoder.decode(Forecast.self, from: data!);
             setTheArray(weatherJson: weatherJson);
-        }catch let jsonError {
+        }catch _ {
             if(isLoadUp){
-                print(jsonError);
                 isLoadUp = false;
                 return;
             } else {
@@ -123,7 +122,6 @@ class SecondViewController: UITableViewController, CLLocationManagerDelegate{
         let url = weatherModel.getForecastIconUrl(iconCode: iconCode);
         let task = session.dataTask(with: url!) { [weak self] data, response, error in
             if error != nil {
-                print(error!);
                 return;
             }
             else {
@@ -159,7 +157,7 @@ class SecondViewController: UITableViewController, CLLocationManagerDelegate{
                     self.weatherModel.city = loc.locality!;
                     self.fetchWeather();
                 } else {
-                    print(error!);
+                    return;
                 }
             })
         } else {

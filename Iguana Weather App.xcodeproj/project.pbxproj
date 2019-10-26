@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8D48510323644F7D00DCDD43 /* logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8D48510223644F7C00DCDD43 /* logo.jpg */; };
 		8D9F07E9234728F4008A4063 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9F07E8234728F4008A4063 /* AppDelegate.swift */; };
 		8D9F07EB234728F4008A4063 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9F07EA234728F4008A4063 /* FirstViewController.swift */; };
 		8D9F07ED234728F4008A4063 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9F07EC234728F4008A4063 /* SecondViewController.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8D48510223644F7C00DCDD43 /* logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = logo.jpg; path = ../../../Downloads/logo.jpg; sourceTree = "<group>"; };
 		8D9F07E5234728F4008A4063 /* Iguana Weather App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Iguana Weather App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D9F07E8234728F4008A4063 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8D9F07EA234728F4008A4063 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				8D9F07F1234728F7008A4063 /* Assets.xcassets */,
 				8D9F07F3234728F7008A4063 /* LaunchScreen.storyboard */,
 				8D9F07F6234728F7008A4063 /* Info.plist */,
+				8D48510223644F7C00DCDD43 /* logo.jpg */,
 				8D9F0818234734F1008A4063 /* WeatherModel.swift */,
 			);
 			path = "Iguana Weather App";
@@ -238,6 +241,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D48510323644F7D00DCDD43 /* logo.jpg in Resources */,
 				8D9F07F5234728F7008A4063 /* LaunchScreen.storyboard in Resources */,
 				8D9F07F2234728F7008A4063 /* Assets.xcassets in Resources */,
 				8D9F07F0234728F4008A4063 /* Main.storyboard in Resources */,
